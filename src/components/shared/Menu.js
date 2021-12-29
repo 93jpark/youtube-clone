@@ -1,10 +1,19 @@
+import { Link } from 'react-router-dom';
 import styles from './Menu.module.css';
 
 const Menu = () => {
     return (
-        <>
-            <div>메뉴</div>
-        </>
+        <div>
+            <div>
+                <Link to="/">홈</Link>
+            </div>
+            <div>
+                <Link to="/explore">탐색</Link>
+            </div>
+            <div>
+                <Link to="/subscription">구독</Link>
+            </div>
+        </div>
     )
 }
 
