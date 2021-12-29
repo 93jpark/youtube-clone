@@ -2,7 +2,7 @@ import Layout from '../shared/Layout';
 
 const  Explore = () => {
     return (
-        <Layout>
+        <Layout activeMenu="explore">
             <div>* 탐색</div>
         </Layout>
     )

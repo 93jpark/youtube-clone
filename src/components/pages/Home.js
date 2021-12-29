@@ -2,7 +2,7 @@ import Layout from '../shared/Layout';
 
 const  Home = () => {
     return (
-        <Layout>
+        <Layout activeMenu="home">
             <div>* 홈</div>
         </Layout>
     )
