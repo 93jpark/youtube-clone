@@ -4,7 +4,7 @@ import { TiHome } from 'react-icons/ti';
 import { FaRegCompass } from 'react-icons/fa';
 import { MdSubscriptions } from 'react-icons/md';
 
-const Menu = ( {activeMenu} ) => {
+const Menu = ( { activeMenu } ) => {
     console.log(activeMenu)
     return (
         <div className={styles.menu}>
@@ -22,6 +22,7 @@ const Menu = ( {activeMenu} ) => {
                 <MdSubscriptions className={styles.icon} /> 
                 <div className={styles.text}>구독</div>
             </Link>
+
         </div>
     )
 }

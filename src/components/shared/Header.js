@@ -5,12 +5,11 @@ import { IoSearchOutline } from 'react-icons/io5';
 import { HiOutlineDotsVertical } from 'react-icons/hi';
 import { BsGrid3X3Gap } from 'react-icons/bs';
 
-
-const Header = () => {
+const Header = ({ switchMenuOpen }) => {
     return (
         <div className={styles.header}>
             <div className={styles.tab}>
-                <FiMenu className={styles.icon} />
+                <FiMenu className={styles.icon} onClick={switchMenuOpen} />
                 <img src={youtube_logo} alt="Logo" className={styles.logo} />
             </div>
             <div className={styles['center-tab']}>

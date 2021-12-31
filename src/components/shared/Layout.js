@@ -1,15 +1,21 @@
 import styles from './Layout.module.css';
 import Header from './Header';
 import Menu from './Menu';
-
+import { useState } from 'react';
 
 const Layout = ({ children, activeMenu }) => {
+    const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+    const switchMenuOpen = () => {
+        setIsMenuOpen(!isMenuOpen);
+    }
+
     return (
         <>
             <div className={styles.container}>
-                <Header/>
+                <Header switchMenuOpen={switchMenuOpen}/>
                 <div className={styles.layout}>
-                    <Menu activeMenu={activeMenu} />
+                    {isMenuOpen ? <Menu activeMenu={activeMenu} /> : ''}
                     <div className={styles.contents}>{children}</div>
                 </div>
             </div>

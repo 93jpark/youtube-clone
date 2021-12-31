@@ -3,7 +3,6 @@ import Home from './components/pages/Home';
 import Explore from './components/pages/Explore';
 import Subscription from './components/pages/Subscription';
 
-
 function App() {
   
   return (
