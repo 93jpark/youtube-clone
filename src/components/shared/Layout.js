@@ -16,7 +16,8 @@ const Layout = ({ children, activeMenu }) => {
                 <Header switchMenuOpen={switchMenuOpen}/>
                 <div className={styles.layout}>
                     {isMenuOpen ? <Menu activeMenu={activeMenu} /> : ''}
-                    <div className={styles.contents}>{children}</div>
+                    {isMenuOpen ? <div className={styles.contents}>{children}</div> : <div className={styles.contentsNoMargin}>{children}</div>}
+                    
                 </div>
             </div>
         </>

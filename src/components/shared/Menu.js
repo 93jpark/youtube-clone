@@ -5,7 +5,6 @@ import { FaRegCompass } from 'react-icons/fa';
 import { MdSubscriptions } from 'react-icons/md';
 
 const Menu = ( { activeMenu } ) => {
-    console.log(activeMenu)
     return (
         <div className={styles.menu}>
             <Link to="/" className={ activeMenu === 'home' ? styles.focused : styles.link }>
