@@ -1,8 +1,6 @@
 import styles from './HomeCard.module.css';
 
 const HomeCard = ({data, index}) => {
-  console.log(`here is HomeCard data: ${data}`)
-  console.log(`${data.id}`)
     return (
         <a
           href={`https://www.youtube.com/watch?v=${data.id}`}

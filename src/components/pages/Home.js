@@ -1,69 +1,45 @@
 import styles from './Home.module.css';
-import Layout from '../shared/Layout';
+import Layout from '../../components/shared/Layout';
 import youtubeData from '../../data/youtubeData.json';
-import HomeFilter from '../home/HomeFilter';
-import HomeCard from '../home/HomeCard';
+import HomeFilter from '../../components/home/HomeFilter';
+import HomeCard from '../../components/home/HomeCard';
 import { useState } from 'react';
 
-const  Home = () => {
-    const [currentFilter, setCurrentFilter] = useState('전체');
+const target = ['전체', 'Music', 'Entertainment', 'Comedy'];
 
-    const setFilter = (newFilter) => {
-      console.log(`prev is ${currentFilter}`)
-      setCurrentFilter(newFilter);
-      console.log(`current is ${currentFilter}`)
-    }
+function Home() {
+  const [filter, setFilter] = useState('전체');
 
-    const filter = () => {
-
-    }
-
+  function mapFunc(data, index) {
     return (
-        <Layout activeMenu="home">
-          <div className={styles.header}>
-            <HomeFilter
-              filter="전체"
-              text="전체"
-              onClickFilter={(e) => {
-                setFilter(e.target.outerText);
-                console.log(e.target.outerText);
-              }}
-            />
-            <HomeFilter
-              filter="BTS"
-              text="BTS"
-              onClickFilter={(e) => {
-                setFilter(e.target.outerText);
-                console.log(e.target.outerText);
+      <HomeFilter
+        filter={filter}
+        text={data}
+        onClickFilter={function () {
+          setFilter(data);
+        }}
+        key={`home-filter-${index}`}
+      />
+    );
+  }
 
-              }}
-            />
-            <HomeFilter
-              filter="LISA"
-              text="LISA"
-              onClickFilter={(e) => {
-                console.log(e.target.outerText);
-                setFilter(e.target.outerText);
-              }}
-            />
-          </div>
-          <div className={styles.container}>
-            {console.log(youtubeData)}
-            <div className={styles.grid}>
-            {youtubeData['data'].map((data, index) => {
-                    
+  const filterFunc= (data) => {
+    if(filter === '전체' || data.category === filter) return true;
+    return false;
+  }
 
-                      if(data.title.includes(currentFilter) || currentFilter === '전체') {
-                        return (<HomeCard key={`explore-card-${index}`} data={data} index={index} />)
-                      } 
-                    
-                    
-                })}
-
-            </div>
-          </div>
-        </Layout>
-      );
+  return (
+    <Layout activeMenu="home">
+      <div className={styles.header}>{target.map(mapFunc)}</div>
+      <div className={styles.container}>
+        <div className={styles.grid}>{youtubeData['data'].filter(filterFunc).map((data, index)=>{
+          return (
+            <HomeCard key={'HomeCard is '+data+index} data={data} index={index} />
+          )
+        })}</div>
+      </div>
+    </Layout>
+  );
 }
 
 export default Home;
