@@ -1,7 +1,7 @@
 import Layout from '../shared/Layout';
 import ContentsLayout from '../shared/ContentsLayout';
 import youtubeData from '../../data/youtubeData.json';
-import ExploreCard from '../explore/ExploreCard';
+import HorizontalCard from '../explore/HorizontalCard';
 
 const  Explore = () => {
     return (
@@ -9,7 +9,7 @@ const  Explore = () => {
             <ContentsLayout>
                 {youtubeData['data'].map((data, index) => {
                     return (
-                        <ExploreCard key={`explore-card-${index}`} data={data} />
+                        <HorizontalCard key={`explore-card-${index}`} data={data} />
                     )
                 })}
             </ContentsLayout>

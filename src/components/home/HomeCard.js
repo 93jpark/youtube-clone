@@ -1,4 +1,7 @@
 import styles from './HomeCard.module.css';
+import moment from 'moment'
+import 'moment/locale/ko';
+import {ProcessViewCount} from '../../utils'
 
 const HomeCard = ({data, index}) => {
     return (
@@ -25,8 +28,8 @@ const HomeCard = ({data, index}) => {
               <div className={styles.title}> {data.title}</div>
               <div className={styles.uploader}>{data.channelTitle}</div>
               <div className={styles.flex}>
-                <div className={styles.view}>{data.viewCount}</div>
-                <div className={styles.date}>{data.date}</div>
+                <div className={styles.view}>{ProcessViewCount(data.viewCount)}</div>
+                <div className={styles.date}>{moment(data.date).fromNow()}</div>
               </div>
             </div>
           </div>
