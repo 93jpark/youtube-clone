@@ -1,6 +1,5 @@
 import HorizontalCard from '../explore/HorizontalCard';
 import styles from './SubscriptionCard.module.css';
-import { ProcessUploadUdate } from '../../utils'
 
 function SubscriptionCard({ data }) {
   return (
